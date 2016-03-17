@@ -1,0 +1,117 @@
+<html>
+<head></head>
+<body>
+
+<div id="pieChart"></div>
+
+
+<script src="customjs/d3pie.min.js"></script>
+<script type="text/javascript" src="d3/d3.min.js"></script>
+<script>
+var pie = new d3pie("pieChart", {
+	"header": {
+		"title": {
+			"text": "Configuration Management Running",
+			"color": "#0010e6",
+			"fontSize": 24,
+			"font": "open sans"
+		},
+		"subtitle": {
+			"text": "A full pie chart to show off Configuration Management Running.",
+			"color": "#001ee9",
+			"fontSize": 12,
+			"font": "open sans"
+		},
+		"titleSubtitlePadding": 9
+	},
+	"footer": {
+	//	"text": "Walmart",
+		"color": "#3200ff",
+		"fontSize": 10,
+		"font": "open sans",
+		"location": "bottom-left"
+	},
+	"size": {
+		"canvasWidth": 400,
+		"canvasHeight": 300,
+		"pieOuterRadius": "100%"
+	},
+	"data": {
+		"sortOrder": "value-desc",
+		"content": [
+			{
+				"label": "Chef",
+				"value": 78327,
+				"color": "#2081c1"
+			},
+			{
+				"label": "Puppet",
+				"value": 67706,
+				"color": "#64a61f"
+			},
+			{
+				"label": "Ansible",
+				"value": 36344,
+				"color": "#7b6688"
+			},
+			{
+				"label": "Salt",
+				"value": 32170,
+				"color": "#a05c56"
+			}
+		]
+	},
+	"labels": {
+		"outer": {
+			"pieDistance": 25
+		},
+		"inner": {
+			"hideWhenLessThanPercentage": 3
+		},
+		"mainLabel": {
+			"color": "#080707",
+			"fontSize": 11
+		},
+		"percentage": {
+			"color": "#ffffff",
+			"decimalPlaces": 0
+		},
+		"value": {
+			"color": "#b81a1a",
+			"fontSize": 11
+		},
+		"lines": {
+			"enabled": true
+		},
+		"truncation": {
+			"enabled": true
+		}
+	},
+	"tooltips": {
+		"enabled": true,
+		"type": "placeholder",
+		"string": "{label}: {value}, {percentage}%",
+		"styles": {
+			"fadeInSpeed": 829,
+			"backgroundOpacity": 0.63
+		}
+	},
+	"effects": {
+		"pullOutSegmentOnClick": {
+			"effect": "elastic",
+			"speed": 400,
+			"size": 8
+		}
+	},
+	"misc": {
+		"gradient": {
+			"enabled": true,
+			"percentage": 100
+		}
+	},
+	"callbacks": {}
+});
+</script>
+
+</body>
+</html>
