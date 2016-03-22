@@ -28,7 +28,7 @@ $(document)
 									"location" : "bottom-left"
 								},
 								"size" : {
-									"canvasWidth" : 2200,
+									"canvasWidth" : 600,
 									"canvasHeight" : 400,
 									"pieOuterRadius" : "100%"
 								},
@@ -191,6 +191,6 @@ $(document)
 								"percentage" : 100
 							}
 						}
-					});
+					});		
 
-				});
+});
