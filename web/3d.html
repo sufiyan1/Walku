@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Walku CMDB</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript" src="d3.js"></script>
+<script type="text/javascript" src="d3.min.js"></script>
+<style>
+
+.chart rect {
+  fill: steelblue;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+</style>
+</head>
+<body>
+<script type="text/javascript" src="Hostd3.js"></script>
+<div id='container'>
+    <div id='header'>
+        <div id=''>
+            <img src="images/header.JPG" alt='Logo' />
+        </div>
+        <div></div>
+    </div>
+    <div class='border-bottom' id='content'>
+      <div class='border-bottom'>
+        <div class='chartCont border-right' id='HostUpDown-container'>Total # of Hosts.
+        </div>
+        <div class='chartCont' id='hostContainer'># of Host per Data Center.
+        <svg class="chart"></svg>
+        </div>
+      </div>
+     
+    </div>
+
+</div>
+</body>
+</html>

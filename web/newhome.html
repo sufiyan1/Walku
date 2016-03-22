@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Walku CMDB</title>
+<style>
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	width: 960px;
+	height: 500px;
+	position: relative;
+}
+
+path.slice {
+	stroke-width: 2px;
+}
+
+polyline {
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+}
+
+svg text.percent {
+	fill: white;
+	text-anchor: middle;
+	font-size: 12px;
+}
+</style>
+
+<script type="text/javascript" src="d3/d3.js"></script>
+<script type="text/javascript" src="d3/d3.min.js"></script>
+<script type="text/javascript" src="customjs/d3pie.min.js"></script>
+<script type="text/javascript" src="customjs/3dbar.js"></script>
+<script type="text/javascript" src="customjs/heatmap.js"></script>
+<script type="text/javascript" src="customjs/Hostd3.js"></script>
+<script type="text/javascript" src="customjs/Donut3D.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<link rel="stylesheet" href="customcss/d3dashboard.css" type="text/css">
+</head>
+<body>
+
+	<div id='container'>
+		<div id='header'>
+			<div id=''>
+				<img src="images/header.JPG" alt='Logo' />
+			</div>
+			<div></div>
+		</div>
+
+
+		<div id="chart" style="position: absolute; left: 80px; top: 650px;">
+			<font size="4px"><b>CPU Utilization % by time over the
+					week</b></font>
+		</div>
+		<!-- 	 <div id="dataset-picker"></div> -->
+
+		<div id="pieChart"
+			style="position: absolute; left: -50px; top: 150px;"></div>
+		<div id="donutChart" style="position: absolute; top: 110px;"></div>
+
+
+		<div id='footer'>
+			<p>
+				This application was built using D3
+			</p>
+		</div>
+	</div>
+
+	<script>
+		var pie = new d3pie(
+				"pieChart",
+				{
+					"header" : {
+						"title" : {
+							"text" : "Configuration Management Running",
+							"color" : "#0010e6",
+							"fontSize" : 24,
+							"font" : "open sans"
+						},
+						"subtitle" : {
+							"text" : "A full pie chart to show off Configuration Management Running.",
+							"color" : "#001ee9",
+							"fontSize" : 12,
+							"font" : "open sans"
+						},
+						"titleSubtitlePadding" : 9
+					},
+					"footer" : {
+						//	"text": "Walmart",
+						"color" : "#3200ff",
+						"fontSize" : 10,
+						"font" : "open sans",
+						"location" : "bottom-left"
+					},
+					"size" : {
+						"canvasWidth" : 2200,
+						"canvasHeight" : 400,
+						"pieOuterRadius" : "100%"
+					},
+					"data" : {
+						"sortOrder" : "value-desc",
+						"content" : [ {
+							"label" : "Chef",
+							"value" : 78327,
+							"color" : "#2081c1"
+						}, {
+							"label" : "Puppet",
+							"value" : 67706,
+							"color" : "#64a61f"
+						}, {
+							"label" : "Ansible",
+							"value" : 36344,
+							"color" : "#7b6688"
+						}, {
+							"label" : "Salt",
+							"value" : 32170,
+							"color" : "#a05c56"
+						} ]
+					},
+					"labels" : {
+						"outer" : {
+							"pieDistance" : 25
+						},
+						"inner" : {
+							"hideWhenLessThanPercentage" : 3
+						},
+						"mainLabel" : {
+							"color" : "#080707",
+							"fontSize" : 11
+						},
+						"percentage" : {
+							"color" : "#ffffff",
+							"decimalPlaces" : 0
+						},
+						"value" : {
+							"color" : "#b81a1a",
+							"fontSize" : 11
+						},
+						"lines" : {
+							"enabled" : true
+						},
+						"truncation" : {
+							"enabled" : true
+						}
+					},
+					"tooltips" : {
+						"enabled" : true,
+						"type" : "placeholder",
+						"string" : "{label}: {value}, {percentage}%",
+						"styles" : {
+							"fadeInSpeed" : 829,
+							"backgroundOpacity" : 0.63
+						}
+					},
+					"effects" : {
+						"pullOutSegmentOnClick" : {
+							"effect" : "elastic",
+							"speed" : 400,
+							"size" : 8
+						}
+					},
+					"misc" : {
+						"gradient" : {
+							"enabled" : true,
+							"percentage" : 100
+						}
+					},
+					"callbacks" : {}
+				});
+
+		var pie = new d3pie("donutChart", {
+			"header" : {
+				"title" : {
+					"text" : "HOST Up/Down",
+					"fontSize" : 24,
+					"font" : "open sans"
+				},
+				"subtitle" : {
+					"text" : "HOST Up/Down",
+					"color" : "#999999",
+					"fontSize" : 12,
+					"font" : "open sans"
+				},
+				"titleSubtitlePadding" : 9
+			},
+			"footer" : {
+				"color" : "#999999",
+				"fontSize" : 10,
+				"font" : "open sans",
+				"location" : "bottom-right"
+			},
+			"size" : {
+				"canvasWidth" : 590,
+				"pieInnerRadius" : "60%",
+				"pieOuterRadius" : "79%"
+			},
+			"data" : {
+				"sortOrder" : "value-desc",
+				"smallSegmentGrouping" : {
+					"enabled" : true,
+					"value" : 0
+				},
+				"content" : [ {
+					"label" : "Hostup",
+					"value" : 78327,
+					"color" : "#49FF0D"
+				}, {
+					"label" : "Host down",
+					"value" : 67706,
+					"color" : "#8A9AF2"
+				}, {
+					"label" : "SSH able",
+					"value" : 36344,
+					"color" : "#FF8000"
+				}, {
+					"label" : "No SSh",
+					"value" : 32170,
+					"color" : "#248838"
+				} ]
+			},
+			"labels" : {
+				"outer" : {
+					"pieDistance" : 32
+				},
+				"inner" : {
+					"hideWhenLessThanPercentage" : 3
+				},
+				"mainLabel" : {
+					"fontSize" : 11
+				},
+				"percentage" : {
+					"color" : "#ffffff",
+					"decimalPlaces" : 0
+				},
+				"value" : {
+					"color" : "#adadad",
+					"fontSize" : 11
+				},
+				"lines" : {
+					"enabled" : true
+				},
+				"truncation" : {
+					"enabled" : true
+				}
+			},
+			"effects" : {
+				"pullOutSegmentOnClick" : {
+					"speed" : 400,
+					"size" : 8
+				}
+			},
+			"misc" : {
+				"gradient" : {
+					"enabled" : true,
+					"percentage" : 100
+				}
+			}
+		});
+	</script>
+
+</body>
+</html>
