@@ -1,7 +1,7 @@
 $(document).ready(
 		function() {
 
-			var canvas = d3.select("#treeMap1").append("svg").attr("width", 600)
+			var canvas = d3.select("#noOfHost").append("svg").attr("width", 600)
 					.attr("height", 450).append("g").attr("transform",
 							"translate(50, 50)");
 
