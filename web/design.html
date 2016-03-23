@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>
+</title>
+<script>
+function Hide()
+        {
+        var anchor1 = document.getElementById("link1");
+        var anchor2 = document.getElementById("link2");
+        var anchor3 = document.getElementById("link3");
+                anchor1.style.display = "none";
+                anchor2.style.display = "none";
+                anchor3.style.display = "none";
+        }
+function showHide()
+        {
+        var anchor1 = document.getElementById("link1");
+        var anchor2 = document.getElementById("link2");
+        var anchor3 = document.getElementById("link3");
+            if(document.getElementById('click').checked)
+            {
+                anchor1.style.display = "inline";
+                 anchor2.style.display = "inline";
+                  anchor3.style.display = "inline";
+            }
+            else
+            {
+                anchor1.style.display = "none";
+                anchor2.style.display = "none";
+                anchor3.style.display = "none";
+            }
+        }
+function appendUserId(e){
+    e.href = e.href + "?server=" + document.getElementById('server1').value;
+}
+</script>
+</head>
+<body onload="Hide()">
+<TABLE ALIGN="left" BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="1000px">
+
+<TR ALIGN="left" VALIGN="middle">
+<TD></TD>
+	<TD>HOSTNAME</TD>
+	<TD>OS</TD>
+	<TD>VENDER</TD>
+	<TD>SERVER MODEL</TD>
+	<TD>action</TD>
+</TR>
+<TR ALIGN="left" VALIGN="middle">
+<td><input type="checkbox" name="vehicle" id="click"  onclick="showHide();" ></td>
+	<TD><input type="label" id="server1" value="dal-hsdkjsj@walmart.com"></TD>
+		<TD>linux</TD>
+		<TD>walmart</TD>
+	<TD>MODEL</TD>
+	<TD><a href="donuts.html" onclick="appendUserId(this)" id="link1">start</a> <a href="donuts.html" id="link2">stop</a> <a href="donuts.html" id="link3">reboot</a></TD>
+</TR>
+<TR ALIGN="left" VALIGN="middle">
+<td><input type="checkbox" name="vehicle" id="click"  onclick="showHide();" ></td>
+	<TD><input type="label" id="server1" value="dal-dasdasd@walmart.com"></TD>
+		<TD>linux</TD>
+		<TD>walmart</TD>
+	<TD>MODEL</TD>
+	<TD><a href="donuts.html" onclick="appendUserId(this)" id="link1">start</a> <a href="donuts.html" id="link2">stop</a> <a href="donuts.html" id="link3">reboot</a></TD>
+</TR>
+<TR ALIGN="left" VALIGN="middle">
+<td><input type="checkbox" name="vehicle" id="click"  onclick="showHide();" ></td>
+	<TD><input type="label" id="server1" value="dal-asdas@walmart.com"></TD>
+		<TD>linux</TD>
+		<TD>walmart</TD>
+	<TD>MODEL</TD>
+	<TD><a href="donuts.html" onclick="appendUserId(this)" id="link1">start</a> <a href="donuts.html" id="link2">stop</a> <a href="donuts.html" id="link3">reboot</a></TD>
+</TR>
+
+</TABLE>
+
+</body>
+</html>

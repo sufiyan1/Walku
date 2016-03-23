@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+<style>
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	width: 500px;
+	height: 500px;
+	position: absolute;
+}
+
+path.slice {
+	stroke-width: 2px;
+}
+
+polyline {
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+}
+
+svg text.percent {
+	fill: white;
+	text-anchor: middle;
+	font-size: 12px;
+}
+
+rect.bordered {
+	stroke: #E6E6E6;
+	stroke-width: 2px;
+}
+
+text.mono {
+	font-size: 9pt;
+	font-family: Consolas, courier;
+	fill: #aaa;
+}
+
+text.axis-workweek {
+	fill: #000;
+}
+
+text.axis-worktime {
+	fill: #000;
+}
+</style>
+<script src="customjs/Donut3D.js"></script>
+<!-- <script type="text/javascript" src="d3/d3.js"></script> -->
+<script type="text/javascript" src="d3/d3.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript" src="customjs/heatmap.js"></script>
+<script type="text/javascript" src="customjs/d3pie.min.js"></script>
+<script type="text/javascript" src="customjs/home.js"></script>
+<script type="text/javascript" src="customjs/tree.js"></script>
+
+</head>
+<body>
+
+	<div id='container'>
+		<div id='header' style="position: absolute; left: 80px;">
+			<div id=''>
+				<img src="images/header.JPG" alt='Logo' />
+			</div>
+			<div></div>
+		</div>
+
+		<!-- 	 <div id="dataset-picker"></div> -->
+
+		<div id="pieChart" style="position: absolute; left: 650px; top: 110px;"></div>
+		<div id="donutChart" style="position: absolute; top: 110px;"></div>
+
+
+		<div id='footer'></div>
+	</div>
+
+</body>
+</html>
