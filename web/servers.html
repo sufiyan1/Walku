@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 960px;
+  height: 500px;
+  position: relative;
+}
+path.slice{
+	stroke-width:2px;
+}
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
+}
+svg text.percent{
+	fill:white;
+	text-anchor:middle;
+	font-size:12px;
+}
+
+</style>
+<body>
+
+
+<script type="text/javascript" src="d3.js"></script>
+<script type="text/javascript" src="d3.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="Donut3D.js"></script>
+<script>
+
+
+var salesData=[
+	{label:"Hostup",value:38,color:"#DC3912"},
+	{label:"hostdown",value:31, color:"#FF9900"},
+	{label:"SSH able",value:19, color:"#109618"},
+	{label:"No SSH",value:13,color:"#990099"}
+];
+
+var svg = d3.select("body").append("svg").attr("width",700).attr("height",300);
+
+svg.append("g").attr("id","salesDonut");
+
+Donut3D.draw("salesDonut", randomData(), 150, 150, 130, 100, 30, 0.4);
+
+
+function randomData(){
+	return salesData.map(function(d){
+		return {label:d.label, value:d.value, color:d.color};});
+}
+
+
+
+
+</script>
+<script type="text/javascript">
+var url = document.URL;
+var id = url.substring(url.lastIndexOf('=') + 1);
+alert(id); // 234234234
+</script>
+
+</body>

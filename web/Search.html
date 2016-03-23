@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>
+</title>
+<script>
+function Hide()
+        {
+
+        var anchor1 = document.getElementById("link1");
+
+
+
+                anchor1.style.display = "none";
+
+
+
+        }
+
+function showHide()
+        {
+
+        var anchor1 = document.getElementById("link1");
+  
+
+
+            if(document.getElementById('click1').checked || document.getElementById('click2').checked || document.getElementById('click3').checked)
+
+            {
+            	
+                anchor1.style.display = "inline";
+    
+
+
+            }
+            else
+            {
+                anchor1.style.display = "none";
+
+
+
+            }
+        }
+
+function appendServerId(e){
+    e.href = e.href + "?server=" + document.getElementById('server1').value;
+}
+</script>
+<style type="text/css">
+legend {
+    display: block;
+    padding-left: 2px;
+    padding-right: 2px;
+    border: none;
+
+}
+fieldset {
+            border: 1px dotted #61B5CF;
+            margin-top: 1.4em;
+            padding: 0.6em;
+            float:left;
+            width:40%;
+           }
+</style>
+</head>
+<body onload="Hide()">
+<form action="" name="server">
+
+<fieldset id="link1" style="width:5%;float:left;position:absolute;left:50%; margin-left: 19%; margin-right: 2%;">
+<legend>Action</legend>
+<strong>
+<select >
+
+<optgroup label="Action">
+<option>start</option>
+<option>stop</option>
+<option>reboot</option>
+</optgroup>
+</select><br><br>
+
+<input type="submit" value="Submit Action" >
+</strong>
+
+</fieldset >
+
+
+<fieldset style="float:left;position:absolute;top:20%; margin-left: 10%; margin-right: 2%;">
+    <legend>Servers</legend>
+
+  
+
+<TABLE  WIDTH="1000px">
+
+<TR ALIGN="left" VALIGN="middle">
+<TD></TD>
+	<TD>HOSTNAME</TD>
+	<TD>OS</TD>
+	<TD>VENDER</TD>
+	<TD>SERVER MODEL</TD>
+	<TD>Server Info</TD>
+		<TD>Status</TD>
+</TR>
+<TR ALIGN="left" VALIGN="middle">
+<td><input type="checkbox" name="vehicle" id="click1"  onclick="showHide();" ></td>
+	<TD><input type="label" id="server1" value="dal-hsdkjsj@walmart.com"></TD>
+		<TD>linux</TD>
+		<TD>walmart</TD>
+	<TD>MODEL</TD>
+	<TD><a href="servers.html?server=dal-hsdkjsj@walmart.com"  id="link">IOLINE</a></TD>
+	<TD>Green</TD>
+</TR>
+<TR ALIGN="left" VALIGN="middle">
+<td><input type="checkbox" name="vehicle" id="click2"  onclick="showHide();" ></td>
+	<TD><input type="label" id="server2" value="dal-dasdasd@walmart.com"></TD>
+		<TD>linux</TD>
+		<TD>walmart</TD>
+	<TD>MODEL</TD>
+	<td><a href="servers.html?server=dal-dasdasd@walmart.com"  id="link">IOLINE</a></td>
+	<TD>Green</TD>
+</TR>
+<TR ALIGN="left" VALIGN="middle">
+<td><input type="checkbox" name="vehicle" id="click3"  onclick="showHide();" ></td>
+	<TD><input type="label" id="server3" value="dal-asdas@walmart.com"></TD>
+		<TD>linux</TD>
+		<TD>walmart</TD>
+	<TD>MODEL</TD>
+	<td><a href="servers.html?server=dal-asdas@walmart.com"  id="link">IOLINE</a></td>
+	<TD>REd</TD>
+	
+<!-- 	onclick="appendServerId(this)" -->
+</TR>
+
+</TABLE>
+
+</fieldset>
+</form>
+</body>
+</html>
